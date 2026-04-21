@@ -9,7 +9,7 @@
 <meta property="og:description" content="Un camión dedicado. Tres rutas ancla. Infraestructura moderna para la cadena de suministro dominicana.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/camion-render.jpg">
-<link rel="icon" type="image/jpeg" href="assets/CARGEX-02.jpg">
+<link rel="icon" type="image/jpeg" href="assets/CARGEX-icon-X.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -162,93 +162,96 @@
   .btn-white:hover{background:var(--orange)}
   .btn::after{content:"→"}
 
-  /* Truck as cinematic full-bleed at bottom of hero */
-  .truck-deck{
-    position:relative;height:clamp(280px, 38vh, 460px);
-    margin-top:40px;overflow:hidden;isolation:isolate;
+  /* ── SCHEMATIC OPS MODULE ── */
+  .ops-module{
+    position:relative;margin-top:48px;
+    background:linear-gradient(180deg, rgba(10,18,32,0.7), rgba(5,10,20,0.9));
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    isolation:isolate;
   }
-  .truck-horizon{
-    position:absolute;inset:0 0 0 0;
-    background:
-      linear-gradient(180deg, transparent 0%, rgba(232,128,58,0.08) 55%, rgba(232,128,58,0.15) 62%, transparent 66%),
-      linear-gradient(180deg, transparent 0%, transparent 62%, #0A1220 62%, #050A14 100%);
+  .ops-module::before{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(36,51,73,0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(36,51,73,0.18) 1px, transparent 1px);
+    background-size:32px 32px;
+    mask-image:linear-gradient(180deg,#000 0%,transparent 100%);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 100%);
+    opacity:0.6;
   }
-  .truck-horizon::after{
-    content:"";position:absolute;left:0;right:0;top:62%;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(232,128,58,0.55),transparent);
+  .ops-module::after{
+    content:"";position:absolute;left:-40%;top:0;width:80%;height:100%;z-index:0;pointer-events:none;
+    background:linear-gradient(90deg, transparent, rgba(232,128,58,0.06) 50%, transparent);
+    animation:scan 6s linear infinite;
   }
-  .truck-sun{
-    position:absolute;left:50%;top:50%;transform:translate(-50%,-30%);
-    width:min(780px,90vw);height:clamp(180px,28vw,320px);
-    background:radial-gradient(ellipse at center bottom, rgba(232,128,58,0.35),rgba(232,128,58,0.1) 40%, transparent 70%);
-    pointer-events:none;filter:blur(2px);
-  }
-  .truck-mountains{
-    position:absolute;left:0;right:0;top:55%;height:60px;z-index:1;opacity:0.5;
-    background-repeat:repeat-x;background-size:2200px 60px;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2200 60'><path fill='%23111c2e' d='M0 60 L120 20 L260 45 L380 10 L520 40 L660 15 L820 48 L960 20 L1140 45 L1260 12 L1440 42 L1580 18 L1780 45 L1920 15 L2100 40 L2200 25 L2200 60 Z'/></svg>");
-    animation:driftBg 90s linear infinite;
-  }
-  @keyframes driftBg{from{background-position:0 0}to{background-position:-2200px 0}}
+  @keyframes scan{from{left:-40%}to{left:140%}}
 
-  .truck-road{
-    position:absolute;left:0;right:0;bottom:0;height:38%;
-    background:linear-gradient(180deg,#1a2942 0%,#0E1A2C 60%,#050A14 100%);
+  .ops-header{
+    position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;border-bottom:1px solid var(--line-soft);
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;color:var(--text-mute);text-transform:uppercase;
   }
-  .road-markers{
-    position:absolute;left:0;right:0;bottom:14%;height:3px;z-index:2;
-    background-image:repeating-linear-gradient(90deg, var(--orange) 0 46px, transparent 46px 96px);
-    opacity:0.9;animation:rflow 1s linear infinite;
-  }
-  .road-markers-2{
-    position:absolute;left:0;right:0;bottom:6%;height:1px;z-index:2;
-    background-image:repeating-linear-gradient(90deg, rgba(232,128,58,0.45) 0 20px, transparent 20px 60px);
-    animation:rflow 2.2s linear infinite;
-  }
-  @keyframes rflow{from{background-position:0 0}to{background-position:-96px 0}}
+  .ops-header .lhs{display:flex;align-items:center;gap:18px}
+  .ops-header .live{display:inline-flex;align-items:center;gap:8px;color:var(--orange)}
+  .ops-header .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(232,128,58,0.6);animation:pulse 2s infinite}
+  .ops-header .rhs{display:flex;gap:20px;align-items:center}
+  .ops-header .rhs span{color:var(--text-faint)}
 
-  .truck-posts{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-  .truck-posts .p{
-    position:absolute;bottom:42%;width:2px;height:50px;background:rgba(107,122,143,0.5);
-    animation:postPass 7s linear infinite;
-  }
-  .truck-posts .p::after{content:"";display:block;position:absolute;top:-2px;left:-12px;width:26px;height:18px;background:rgba(107,122,143,0.28);border-radius:2px}
-  .truck-posts .p:nth-child(1){animation-delay:0s}
-  .truck-posts .p:nth-child(2){animation-delay:1.75s}
-  .truck-posts .p:nth-child(3){animation-delay:3.5s}
-  .truck-posts .p:nth-child(4){animation-delay:5.25s}
-  @keyframes postPass{
-    0%{left:105%;opacity:0}
-    4%{opacity:0.55}
-    96%{opacity:0.55}
-    100%{left:-10%;opacity:0}
+  .ops-body{
+    position:relative;z-index:1;display:grid;grid-template-columns:1.5fr 1fr;gap:0;min-height:clamp(320px, 42vh, 480px);
   }
 
-  .truck-wrap{
-    position:absolute;left:50%;bottom:6%;transform:translateX(-50%);
-    width:min(1100px,92%);z-index:6;
-    filter:drop-shadow(0 34px 40px rgba(0,0,0,0.75));
-    animation:bob 1.3s ease-in-out infinite;
+  /* Left — Map/Canvas */
+  .ops-map{position:relative;padding:36px 40px;border-right:1px solid var(--line-soft);overflow:hidden}
+  .ops-map svg{width:100%;height:100%;display:block;max-height:clamp(280px,36vh,420px)}
+  .ops-map .tag{
+    position:absolute;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:var(--text-mute);text-transform:uppercase;
+    padding:5px 9px;background:rgba(5,10,20,0.8);border:1px solid var(--line-soft);
   }
-  @keyframes bob{
-    0%,100%{transform:translateX(-50%) translateY(0)}
-    50%{transform:translateX(-50%) translateY(-3px)}
-  }
-  .truck-wrap img{width:100%;display:block;border-radius:6px}
-  .truck-fallback{
-    aspect-ratio:3/1.25;width:100%;
-    background:linear-gradient(180deg,#ffffff 0 28%,#0E2A4D 28% 85%,#060E1B 85% 100%);
-    border:1px solid var(--line-2);border-radius:6px;
-    display:grid;place-items:center;position:relative;overflow:hidden;
-  }
-  .truck-fallback::before{content:"Guardar render en assets/camion-render.jpg";color:var(--text-mute);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .ops-map .tag b{color:var(--text);font-weight:500}
+  .ops-map .tag .dot{color:var(--orange)}
 
-  /* streaks passing camera */
-  .streak{position:absolute;height:2px;background:linear-gradient(90deg,transparent,var(--orange-bright),transparent);opacity:0.6;z-index:4;animation:streak 2s linear infinite;pointer-events:none}
-  .streak.a{top:62%;width:180px;animation-delay:0s}
-  .streak.b{top:70%;width:130px;animation-delay:.7s}
-  .streak.c{top:78%;width:220px;animation-delay:1.3s}
-  @keyframes streak{0%{transform:translateX(110vw)}100%{transform:translateX(-30vw)}}
+  /* Right — Telemetry */
+  .ops-tel{padding:28px 32px;display:grid;gap:2px;background:var(--line-soft)}
+  .ops-tel .kv{background:var(--bg-2);padding:18px 20px;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+  .ops-tel .kv .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;color:var(--text-mute);text-transform:uppercase}
+  .ops-tel .kv .v{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:500;color:var(--text);letter-spacing:-0.02em}
+  .ops-tel .kv .v em{font-style:normal;color:var(--orange);font-size:13px;letter-spacing:0.06em;margin-left:6px}
+  .ops-tel .kv.hi .v{color:var(--orange)}
+
+  .ops-foot{
+    position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;
+    padding:14px 24px;border-top:1px solid var(--line-soft);
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.16em;color:var(--text-faint);text-transform:uppercase;
+  }
+  .ops-foot .bars{display:flex;gap:3px;align-items:flex-end;height:14px}
+  .ops-foot .bars i{display:inline-block;width:3px;background:var(--text-faint);animation:barp 1.6s ease-in-out infinite}
+  .ops-foot .bars i:nth-child(1){height:30%;animation-delay:0s}
+  .ops-foot .bars i:nth-child(2){height:60%;animation-delay:.1s}
+  .ops-foot .bars i:nth-child(3){height:85%;animation-delay:.2s;background:var(--orange)}
+  .ops-foot .bars i:nth-child(4){height:50%;animation-delay:.3s}
+  .ops-foot .bars i:nth-child(5){height:75%;animation-delay:.4s}
+  .ops-foot .bars i:nth-child(6){height:40%;animation-delay:.5s}
+  @keyframes barp{
+    0%,100%{transform:scaleY(0.7)}
+    50%{transform:scaleY(1.2)}
+  }
+
+  /* SVG map route animation */
+  .route-path{stroke-dasharray:6 6;animation:dash 18s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-240}}
+  .route-active{stroke-dasharray:0;animation:drawRoute 4s cubic-bezier(.4,.1,.2,1) forwards}
+  @keyframes drawRoute{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+  .truck-dot{animation:moveTruck 18s linear infinite}
+  @keyframes moveTruck{
+    0%{offset-distance:0%}
+    100%{offset-distance:100%}
+  }
+
+  @media(max-width:860px){
+    .ops-body{grid-template-columns:1fr}
+    .ops-map{border-right:none;border-bottom:1px solid var(--line-soft);min-height:280px}
+  }
 
   /* ───── METRICS MARQUEE ───── */
   .marquee{
@@ -480,7 +483,7 @@
 <nav class="top" id="nav">
   <div class="container inner">
     <a href="#" class="brand" aria-label="CARGEX">
-      <div class="brand-mark"><img src="assets/CARGEX-02.jpg" alt=""></div>
+      <div class="brand-mark"><img src="assets/CARGEX-icon-X.jpg" alt=""></div>
       <div class="brand-name">CARGE<em>X</em></div>
     </a>
     <div class="nav-links">
@@ -508,7 +511,7 @@
       <span class="l"><span>Dominicana.</span></span>
     </h1>
     <div class="hero-foot">
-      <p class="lede">Camión furgón de 18 pies dedicado. GPS en vivo, respuesta de cotización en 24&nbsp;h, facturación en 48&nbsp;h. Tres rutas ancla activas.</p>
+      <p class="lede">Furgón de 18 pies dedicado. GPS en vivo. Tarifa en 24&nbsp;h. Factura en 48&nbsp;h. Tres rutas ancla.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="#contacto">Cotizar</a>
         <a class="btn btn-ghost" href="#sistema">Ver sistema</a>
@@ -516,20 +519,80 @@
     </div>
   </div>
 
-  <!-- TRUCK DECK · full-bleed -->
-  <div class="truck-deck" aria-label="CARGEX en ruta">
-    <div class="truck-horizon"></div>
-    <div class="truck-sun"></div>
-    <div class="truck-mountains"></div>
-    <div class="truck-posts"><span class="p"></span><span class="p"></span><span class="p"></span><span class="p"></span></div>
-    <div class="truck-road"></div>
-    <span class="streak a"></span>
-    <span class="streak b"></span>
-    <span class="streak c"></span>
-    <div class="road-markers"></div>
-    <div class="road-markers-2"></div>
-    <div class="truck-wrap">
-      <img src="assets/camion-render.jpg" alt="Camión CARGEX 18 pies" onerror="this.parentElement.innerHTML='<div class=truck-fallback></div>'">
+  <!-- OPS MODULE · schematic dashboard -->
+  <div class="hero-copy">
+    <div class="ops-module" role="complementary" aria-label="Módulo operativo CARGEX">
+      <div class="ops-header">
+        <div class="lhs">
+          <span>CARGEX · OPS_01</span>
+          <span class="live">LIVE</span>
+        </div>
+        <div class="rhs">
+          <span>R / 01 · HAINA → SGO</span>
+          <span>14 : 22 : 07</span>
+        </div>
+      </div>
+
+      <div class="ops-body">
+        <div class="ops-map">
+          <svg viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <!-- DR outline (simplified) -->
+            <defs>
+              <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#E8803A" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#E8803A" stop-opacity="0.1"/>
+              </linearGradient>
+            </defs>
+            <!-- Country silhouette -->
+            <path d="M40 180 Q60 130 110 120 Q180 110 240 125 Q310 115 380 130 Q440 140 470 165 Q485 180 475 205 Q460 230 410 240 Q340 250 280 245 Q220 240 160 230 Q100 220 60 210 Q42 200 40 180 Z"
+                  fill="none" stroke="#243349" stroke-width="1.2"/>
+            <!-- City markers -->
+            <!-- Haina -->
+            <circle cx="180" cy="200" r="5" fill="#E8803A"/>
+            <circle cx="180" cy="200" r="12" fill="none" stroke="#E8803A" stroke-opacity="0.35" stroke-width="1">
+              <animate attributeName="r" values="6;18;6" dur="2.4s" repeatCount="indefinite"/>
+              <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Santiago -->
+            <circle cx="260" cy="145" r="5" fill="#E8803A"/>
+            <!-- Punta Cana -->
+            <circle cx="430" cy="195" r="4" fill="#6B7A8F"/>
+            <!-- Route line active (Haina → Santiago) -->
+            <path d="M180 200 Q210 175 260 145" stroke="#E8803A" stroke-width="2" fill="none" class="route-active"/>
+            <!-- Route inactive Haina → PC -->
+            <path d="M180 200 Q290 205 430 195" stroke="#243349" stroke-width="1.5" fill="none" class="route-path"/>
+            <!-- Route inactive Sgo → Cibao -->
+            <path d="M260 145 Q300 130 360 150" stroke="#243349" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+            <!-- Moving truck dot -->
+            <circle r="5" fill="#fff" stroke="#E8803A" stroke-width="2">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M180 200 Q210 175 260 145"/>
+            </circle>
+            <!-- Scanning line -->
+            <line x1="0" y1="60" x2="520" y2="60" stroke="#E8803A" stroke-width="0.5" stroke-opacity="0.25">
+              <animate attributeName="y1" values="40;300;40" dur="8s" repeatCount="indefinite"/>
+              <animate attributeName="y2" values="40;300;40" dur="8s" repeatCount="indefinite"/>
+            </line>
+          </svg>
+          <!-- Overlay tags -->
+          <div class="tag" style="top:48%;left:20%"><span class="dot">●</span> <b>HAINA</b> / origen</div>
+          <div class="tag" style="top:26%;left:42%"><span class="dot">●</span> <b>SANTIAGO</b> / destino</div>
+          <div class="tag" style="bottom:24px;right:24px">R / 01 · activa</div>
+        </div>
+
+        <div class="ops-tel">
+          <div class="kv hi"><span class="k">ETA</span><span class="v" id="tel-eta">14 : 22<em>h</em></span></div>
+          <div class="kv"><span class="k">Velocidad</span><span class="v"><span id="tel-spd">72</span><em>km/h</em></span></div>
+          <div class="kv"><span class="k">Distancia</span><span class="v"><span id="tel-km">46</span> / 152<em>km</em></span></div>
+          <div class="kv"><span class="k">Carga</span><span class="v">2 400<em>kg</em></span></div>
+          <div class="kv"><span class="k">Conductor</span><span class="v" style="font-size:15px;letter-spacing:0.02em">Unit 01</span></div>
+        </div>
+      </div>
+
+      <div class="ops-foot">
+        <span>Telemetría · sincronizada</span>
+        <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <span>GPS · GLONASS · sat-link</span>
+      </div>
     </div>
   </div>
 </header>
@@ -537,19 +600,19 @@
 <!-- ═══════════ METRICS MARQUEE ═══════════ -->
 <section class="marquee" aria-label="Métricas operativas">
   <div class="marquee-track">
-    <div class="it"><b>18 pies<em>·</em></b><span>Camión furgón dedicado</span></div><span class="dot">●</span>
-    <div class="it"><b>24 h<em>·</em></b><span>Respuesta de cotización</span></div><span class="dot">●</span>
-    <div class="it"><b>48 h<em>·</em></b><span>Facturación post-entrega</span></div><span class="dot">●</span>
+    <div class="it"><b>18 pies<em>·</em></b><span>Furgón dedicado</span></div><span class="dot">●</span>
+    <div class="it"><b>24 h<em>·</em></b><span>Tarifa por escrito</span></div><span class="dot">●</span>
+    <div class="it"><b>48 h<em>·</em></b><span>Factura post-entrega</span></div><span class="dot">●</span>
     <div class="it"><b>100%<em>·</em></b><span>GPS en vivo</span></div><span class="dot">●</span>
     <div class="it"><b>3 rutas<em>·</em></b><span>Ancla activas</span></div><span class="dot">●</span>
-    <div class="it"><b>Neto-30<em>·</em></b><span>Términos de pago</span></div><span class="dot">●</span>
+    <div class="it"><b>Neto-30<em>·</em></b><span>Pago</span></div><span class="dot">●</span>
     <!-- duplicate for seamless loop -->
-    <div class="it"><b>18 pies<em>·</em></b><span>Camión furgón dedicado</span></div><span class="dot">●</span>
-    <div class="it"><b>24 h<em>·</em></b><span>Respuesta de cotización</span></div><span class="dot">●</span>
-    <div class="it"><b>48 h<em>·</em></b><span>Facturación post-entrega</span></div><span class="dot">●</span>
+    <div class="it"><b>18 pies<em>·</em></b><span>Furgón dedicado</span></div><span class="dot">●</span>
+    <div class="it"><b>24 h<em>·</em></b><span>Tarifa por escrito</span></div><span class="dot">●</span>
+    <div class="it"><b>48 h<em>·</em></b><span>Factura post-entrega</span></div><span class="dot">●</span>
     <div class="it"><b>100%<em>·</em></b><span>GPS en vivo</span></div><span class="dot">●</span>
     <div class="it"><b>3 rutas<em>·</em></b><span>Ancla activas</span></div><span class="dot">●</span>
-    <div class="it"><b>Neto-30<em>·</em></b><span>Términos de pago</span></div>
+    <div class="it"><b>Neto-30<em>·</em></b><span>Pago</span></div>
   </div>
 </section>
 
@@ -631,7 +694,7 @@
       <div class="c reveal d3">
         <div class="n mono">04 / Ciclo</div>
         <b>48<em>h</em></b>
-        <span>Facturación post-entrega, NCF, neto-30.</span>
+        <span>Factura post-entrega. NCF. Neto-30.</span>
       </div>
     </div>
   </div>
@@ -690,22 +753,22 @@
     <div class="tl-grid">
       <div class="tl-item reveal d1">
         <div class="tl-dot mono">01</div>
-        <h4>Cotización</h4>
-        <p>Envías origen, destino, tipo y frecuencia. Respondemos con tarifa escrita en menos de 24 h.</p>
+        <h4>Tarifa</h4>
+        <p>Envías origen, destino, tipo y frecuencia. Respondo con tarifa por escrito en 24 h.</p>
       </div>
       <div class="tl-item reveal d2">
         <div class="tl-dot mono">02</div>
         <h4>Contrato</h4>
-        <p>MSA + SOW con SLA, tarifas y términos de pago. Para volumen, tarifa mensual fija.</p>
+        <p>Acuerdo con SLA, tarifa y términos de pago. Para volumen, tarifa mensual fija.</p>
       </div>
       <div class="tl-item reveal d3">
         <div class="tl-dot mono">03</div>
-        <h4>Operación</h4>
-        <p>Tu carga sale con GPS activo. Logs de combustible, peaje y kilómetros por viaje.</p>
+        <h4>Ruta</h4>
+        <p>Tu carga sale con GPS activo. Logs de combustible, peaje y km por viaje.</p>
       </div>
       <div class="tl-item reveal d4">
         <div class="tl-dot mono">04</div>
-        <h4>Facturación</h4>
+        <h4>Factura</h4>
         <p>Factura con NCF en 48 h post-entrega. Pago neto-30 o según contrato.</p>
       </div>
     </div>
@@ -734,7 +797,7 @@
           </a>
           <a class="ci" href="mailto:cesarguzman2901@gmail.com">
             <div class="k mono">@</div>
-            <div><b>cesarguzman2901@gmail.com</b><span>Cotizaciones y propuestas escritas</span></div>
+            <div><b>cesarguzman2901@gmail.com</b><span>Tarifas y propuestas por escrito</span></div>
             <div class="arrow">→</div>
           </a>
           <a class="ci" href="#" onclick="return false;" style="cursor:default">
@@ -812,7 +875,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="brand">
-          <div class="brand-mark"><img src="assets/CARGEX-02.jpg" alt=""></div>
+          <div class="brand-mark"><img src="assets/CARGEX-icon-X.jpg" alt=""></div>
           <div class="brand-name">CARGE<em>X</em></div>
         </div>
         <p class="tag">Logística pesada reinventada en República Dominicana. Un camión furgón dedicado, tres rutas ancla, operación medible.</p>
@@ -860,24 +923,19 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();
 
-/* Parallax: truck shifts slightly on scroll — subtle "depth" */
+/* OPS module — live telemetry tick */
 (function(){
-  const truck = document.querySelector('.truck-wrap');
-  const deck = document.querySelector('.truck-deck');
-  if(!truck || !deck) return;
-  let ticking = false;
-  function update(){
-    const rect = deck.getBoundingClientRect();
-    const progress = 1 - Math.min(1, Math.max(0, rect.bottom / (window.innerHeight + rect.height)));
-    // slight upward drift + scale
-    truck.style.setProperty('--shift', (progress * -24) + 'px');
-    truck.style.setProperty('--scale', 1 + progress * 0.02);
-    ticking = false;
-  }
-  document.addEventListener('scroll', () => {
-    if(!ticking){ requestAnimationFrame(update); ticking = true; }
-  }, {passive:true});
-  update();
+  const spd = document.getElementById('tel-spd');
+  const km = document.getElementById('tel-km');
+  if(!spd || !km) return;
+  let s=72, k=46;
+  setInterval(()=>{
+    s = 58 + Math.floor(Math.random()*26);
+    spd.textContent = s;
+    k = Math.min(152, k + (Math.random() > 0.5 ? 1 : 0));
+    km.textContent = k;
+    if(k>=152) k=46;
+  }, 1600);
 })();
 
 function submitLead(e){
