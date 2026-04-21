@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es-DO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CARGEX · Logística pesada en República Dominicana. Transporte Boss-class con GPS, facturación en 48h y rutas ancla Haina–Santiago. Socios operativos de tu cadena de suministro.">
+<meta name="theme-color" content="#0E2A4D">
+<meta property="og:title" content="CARGEX · Logística Pesada en RD">
+<meta property="og:description" content="Un camión Boss. Tres rutas ancla. 15 días operativos al mes. GPS, facturación en 48h, contratos mensuales. Tu cadena de suministro, con un socio que responde.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/CARGEX-06.jpg">
+<link rel="icon" type="image/jpeg" href="assets/CARGEX-02.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>CARGEX · Logística Pesada en República Dominicana</title>
+<style>
+  :root{
+    --navy:#0E2A4D;
+    --navy-2:#0A1F3A;
+    --navy-3:#13365A;
+    --navy-card:#16385E;
+    --navy-line:#1F4876;
+    --orange:#E8803A;
+    --orange-bright:#F59842;
+    --orange-dark:#C66A28;
+    --text:#F5F7FA;
+    --text-soft:#C9D3E0;
+    --text-mute:#8FA0B6;
+    --white:#FFFFFF;
+    --whatsapp:#25D366;
+    --green:#22C55E;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    background:var(--navy);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.1}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav.topbar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(10,31,58,0.9);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--navy-line);
+  }
+  nav.topbar .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-logo{height:44px;width:44px;border-radius:8px;background:var(--navy);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .brand-logo img{width:100%;height:100%;object-fit:cover;display:block}
+  .brand-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;letter-spacing:0.06em;color:var(--white)}
+  .brand-text span{color:var(--orange)}
+  .brand-text small{display:block;font-weight:400;font-size:10px;letter-spacing:.25em;color:var(--text-mute);margin-top:2px}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--text-soft);font-size:14px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--orange)}
+  .nav-cta{
+    background:var(--orange);color:var(--navy);
+    padding:10px 20px;border-radius:var(--radius);
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.04em;
+    text-transform:uppercase;transition:background .2s,transform .2s;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .nav-cta:hover{background:var(--orange-bright);transform:translateY(-1px)}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{
+    padding:140px 0 90px;
+    background:
+      radial-gradient(ellipse at 80% 20%,rgba(232,128,58,0.18),transparent 55%),
+      radial-gradient(ellipse at 20% 80%,rgba(19,54,90,0.5),transparent 55%),
+      var(--navy);
+    position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;top:0;left:0;right:0;bottom:0;
+    background-image:
+      linear-gradient(rgba(31,72,118,0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31,72,118,0.12) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at center, #000 40%, transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse at center, #000 40%, transparent 80%);
+    pointer-events:none;
+  }
+  .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(232,128,58,0.12);
+    border:1px solid rgba(232,128,58,0.4);
+    color:var(--orange-bright);
+    padding:8px 16px;border-radius:999px;
+    font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+    margin-bottom:26px;
+  }
+  .hero-badge::before{content:"●";color:var(--orange);font-size:10px}
+  .hero h1{
+    font-size:clamp(40px,5.4vw,64px);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--orange);
+    display:inline-block;
+  }
+  .hero p.lede{
+    font-size:clamp(17px,1.4vw,20px);
+    color:var(--text-soft);
+    max-width:580px;margin-bottom:36px;
+    line-height:1.55;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 26px;border-radius:var(--radius);
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.04em;
+    text-transform:uppercase;
+    border:1px solid transparent;cursor:pointer;
+    transition:transform .2s,filter .2s,border-color .2s,background .2s;
+  }
+  .btn-primary{background:var(--orange);color:var(--navy)}
+  .btn-primary:hover{background:var(--orange-bright);transform:translateY(-2px)}
+  .btn-whatsapp{background:var(--whatsapp);color:var(--white)}
+  .btn-whatsapp:hover{filter:brightness(1.08);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--navy-line)}
+  .btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+  .hero-visual{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-mark{
+    width:100%;max-width:380px;aspect-ratio:1/1;
+    background:var(--navy-2);border:1px solid var(--navy-line);border-radius:24px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 40px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(232,128,58,0.08) inset;
+    overflow:hidden;position:relative;
+  }
+  .hero-mark img{width:85%;height:85%;object-fit:contain}
+  .hero-mark::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 30% 20%, rgba(232,128,58,0.15), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-stats{
+    position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);
+    display:flex;gap:12px;
+    background:var(--navy-2);border:1px solid var(--navy-line);border-radius:14px;
+    padding:14px 18px;box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    white-space:nowrap;
+  }
+  .hero-stat{text-align:center;padding:0 14px;border-right:1px solid var(--navy-line)}
+  .hero-stat:last-child{border-right:none}
+  .hero-stat b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--orange)}
+  .hero-stat span{display:block;font-size:10px;color:var(--text-mute);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px}
+
+  @media(max-width:860px){
+    .hero{padding:110px 0 70px}
+    .hero .container{grid-template-columns:1fr;gap:50px;text-align:center}
+    .hero p.lede{margin-left:auto;margin-right:auto}
+    .hero-ctas{justify-content:center}
+    .hero-mark{max-width:300px}
+  }
+
+  /* SECTIONS */
+  section{padding:100px 0;position:relative}
+  section.alt{background:var(--navy-2)}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 60px}
+  .eyebrow{
+    color:var(--orange);font-family:'Montserrat',sans-serif;
+    font-weight:800;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;
+    margin-bottom:14px;display:inline-block;
+  }
+  .section-head h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:16px;color:var(--white)}
+  .section-head p{color:var(--text-soft);font-size:17px;line-height:1.6}
+
+  /* CAPACIDAD — 3 col */
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .cap-card{
+    background:var(--navy-card);border:1px solid var(--navy-line);border-radius:14px;
+    padding:32px 28px;position:relative;overflow:hidden;
+    transition:border-color .2s,transform .2s;
+  }
+  .cap-card:hover{border-color:var(--orange);transform:translateY(-4px)}
+  .cap-card .num{
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:56px;
+    color:var(--orange);line-height:1;margin-bottom:16px;
+    display:flex;align-items:baseline;gap:6px;
+  }
+  .cap-card .num small{font-size:18px;color:var(--text-mute);font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+  .cap-card h3{font-size:20px;color:var(--white);margin-bottom:10px}
+  .cap-card p{font-size:15px;color:var(--text-soft);line-height:1.55}
+  @media(max-width:860px){.cap-grid{grid-template-columns:1fr}}
+
+  /* VALUE PILLARS — 3 angles the user wanted */
+  .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pillar{
+    background:linear-gradient(180deg, var(--navy-card), var(--navy-2));
+    border:1px solid var(--navy-line);border-radius:14px;
+    padding:32px;position:relative;overflow:hidden;
+  }
+  .pillar::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:var(--orange);
+  }
+  .pillar-icon{
+    width:48px;height:48px;border-radius:10px;
+    background:rgba(232,128,58,0.14);border:1px solid rgba(232,128,58,0.3);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;color:var(--orange);margin-bottom:22px;
+    font-family:'Montserrat',sans-serif;font-weight:900;
+  }
+  .pillar h3{font-size:22px;color:var(--white);margin-bottom:14px}
+  .pillar p{color:var(--text-soft);font-size:15px;line-height:1.6;margin-bottom:18px}
+  .pillar ul{list-style:none;display:grid;gap:10px}
+  .pillar ul li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-soft)}
+  .pillar ul li::before{content:"→";color:var(--orange);font-weight:800;flex-shrink:0}
+  @media(max-width:860px){.pillar-grid{grid-template-columns:1fr}}
+
+  /* RUTAS */
+  .rutas-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .rutas-map{
+    background:var(--navy-2);border:1px solid var(--navy-line);border-radius:16px;
+    padding:40px;position:relative;overflow:hidden;aspect-ratio:4/3;
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .rutas-map::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(232,128,58,0.06) 1px, transparent 1px),linear-gradient(90deg, rgba(232,128,58,0.06) 1px, transparent 1px);
+    background-size:28px 28px;pointer-events:none;
+  }
+  .rutas-map .lane{
+    position:relative;z-index:1;display:flex;align-items:center;gap:14px;
+    padding:14px 18px;background:var(--navy-card);border:1px solid var(--navy-line);border-radius:10px;
+    margin-bottom:12px;
+  }
+  .rutas-map .lane-num{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--orange);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;
+    flex-shrink:0;
+  }
+  .rutas-map .lane-label{font-size:14px;font-weight:600;color:var(--white)}
+  .rutas-map .lane-label small{display:block;font-weight:400;color:var(--text-mute);font-size:12px;margin-top:2px}
+  .rutas-list h3{font-size:clamp(26px,3vw,34px);margin-bottom:18px;color:var(--white)}
+  .rutas-list p{color:var(--text-soft);font-size:16px;line-height:1.65;margin-bottom:18px}
+  .rutas-list ul{list-style:none;display:grid;gap:12px;margin-top:8px}
+  .rutas-list ul li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--text-soft)}
+  .rutas-list ul li::before{content:"✓";color:var(--orange);font-weight:800;flex-shrink:0}
+  @media(max-width:860px){.rutas-wrap{grid-template-columns:1fr}}
+
+  /* PROCESO */
+  .proceso-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+  .proceso-steps::before{
+    content:"";position:absolute;top:26px;left:8%;right:8%;height:2px;
+    background:linear-gradient(90deg,transparent,var(--orange),transparent);
+    z-index:0;
+  }
+  .proceso-step{text-align:center;position:relative;z-index:1}
+  .proceso-num{
+    width:56px;height:56px;border-radius:50%;
+    background:var(--navy-card);border:2px solid var(--orange);
+    color:var(--orange);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;
+    margin:0 auto 18px;
+  }
+  .proceso-step h3{font-size:16px;color:var(--white);margin-bottom:8px}
+  .proceso-step p{color:var(--text-soft);font-size:13px;line-height:1.55}
+  @media(max-width:860px){
+    .proceso-steps{grid-template-columns:1fr;gap:28px}
+    .proceso-steps::before{display:none}
+  }
+
+  /* PRICING — tariff card */
+  .tarifa-wrap{
+    background:linear-gradient(135deg, var(--navy-card), var(--navy-2));
+    border:1px solid var(--navy-line);border-radius:18px;
+    padding:50px;max-width:880px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .tarifa-wrap::before{
+    content:"";position:absolute;top:-40px;right:-40px;width:220px;height:220px;
+    background:radial-gradient(circle, rgba(232,128,58,0.18), transparent 70%);
+    pointer-events:none;
+  }
+  .tarifa-left h3{font-size:clamp(26px,3vw,32px);color:var(--white);margin-bottom:14px}
+  .tarifa-left p{color:var(--text-soft);font-size:15px;line-height:1.6;margin-bottom:20px}
+  .tarifa-left ul{list-style:none;display:grid;gap:10px}
+  .tarifa-left ul li{font-size:14px;color:var(--text-soft);display:flex;gap:10px;align-items:flex-start}
+  .tarifa-left ul li::before{content:"▸";color:var(--orange);flex-shrink:0}
+  .tarifa-right{
+    background:var(--navy);border:1px solid var(--navy-line);border-radius:14px;
+    padding:28px;position:relative;
+  }
+  .tarifa-right .label{
+    color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;
+    font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;
+  }
+  .tarifa-right .price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:var(--white);line-height:1}
+  .tarifa-right .price small{font-size:16px;color:var(--text-mute);font-weight:600;letter-spacing:0.04em}
+  .tarifa-right .price-note{font-size:13px;color:var(--text-mute);margin-top:8px;margin-bottom:22px}
+  .tarifa-right .btn{width:100%}
+  @media(max-width:860px){.tarifa-wrap{grid-template-columns:1fr;padding:32px}}
+
+  /* SOCIOS (trust/logos strip) */
+  .socios{text-align:center}
+  .socios-label{
+    color:var(--text-mute);font-size:12px;letter-spacing:0.2em;
+    text-transform:uppercase;margin-bottom:22px;
+  }
+  .socios-grid{display:flex;gap:40px;justify-content:center;align-items:center;flex-wrap:wrap;opacity:0.75}
+  .socios-grid span{
+    font-family:'Montserrat',sans-serif;font-weight:700;
+    color:var(--text-mute);font-size:16px;letter-spacing:0.04em;
+  }
+
+  /* CONTACTO */
+  .contact-wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    background:var(--navy-2);border:1px solid var(--navy-line);
+    border-radius:18px;padding:50px;
+    position:relative;overflow:hidden;
+  }
+  .contact-wrap::before{
+    content:"";position:absolute;top:0;left:0;width:6px;height:100%;
+    background:var(--orange);
+  }
+  .contact-left h3{font-size:clamp(26px,3vw,34px);color:var(--white);margin-bottom:16px}
+  .contact-left p{color:var(--text-soft);font-size:16px;line-height:1.6;margin-bottom:28px}
+  .contact-info{display:grid;gap:16px;margin-top:24px}
+  .contact-info a{display:flex;align-items:center;gap:14px;color:var(--text-soft);transition:color .2s}
+  .contact-info a:hover{color:var(--orange)}
+  .contact-info .icon{
+    width:42px;height:42px;border-radius:10px;
+    background:rgba(232,128,58,0.12);border:1px solid rgba(232,128,58,0.3);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--orange);font-weight:800;font-size:18px;flex-shrink:0;
+  }
+  .contact-info b{display:block;color:var(--white);font-size:15px;font-weight:600;margin-bottom:2px}
+  .contact-info span{font-size:13px;color:var(--text-mute)}
+
+  form#leadForm{display:grid;gap:14px}
+  form#leadForm label{
+    font-size:12px;color:var(--text-mute);letter-spacing:0.08em;
+    text-transform:uppercase;font-weight:600;
+  }
+  form#leadForm .row{display:grid;gap:14px}
+  @media(min-width:640px){form#leadForm .row.two{grid-template-columns:1fr 1fr}}
+  form#leadForm input, form#leadForm select, form#leadForm textarea{
+    width:100%;padding:13px 14px;
+    background:var(--navy);border:1px solid var(--navy-line);
+    color:var(--white);font-family:inherit;font-size:15px;border-radius:10px;
+    transition:border-color .2s;
+  }
+  form#leadForm input:focus, form#leadForm select:focus, form#leadForm textarea:focus{
+    outline:none;border-color:var(--orange);
+  }
+  form#leadForm textarea{resize:vertical;min-height:90px}
+  form#leadForm button{
+    margin-top:6px;width:100%;background:var(--orange);color:var(--navy);
+    padding:16px;border:none;border-radius:10px;
+    font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;
+    letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;
+    transition:background .2s,transform .2s;
+  }
+  form#leadForm button:hover{background:var(--orange-bright);transform:translateY(-1px)}
+  .form-note{font-size:12px;color:var(--text-mute);margin-top:6px;line-height:1.5}
+  @media(max-width:860px){.contact-wrap{grid-template-columns:1fr;padding:32px}}
+
+  /* FOOTER */
+  footer{padding:50px 0 30px;background:var(--navy-2);border-top:1px solid var(--navy-line)}
+  footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  footer .brand-mini{display:flex;align-items:center;gap:12px}
+  footer .brand-mini img{height:36px;border-radius:6px}
+  footer .brand-mini span{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--white);letter-spacing:0.08em}
+  footer p{color:var(--text-mute);font-size:13px}
+  footer .footer-links{display:flex;gap:22px;flex-wrap:wrap}
+  footer .footer-links a{color:var(--text-mute);font-size:13px;transition:color .2s}
+  footer .footer-links a:hover{color:var(--orange)}
+
+  /* Toast */
+  .toast{
+    position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(120%);
+    background:var(--navy-2);border:1px solid var(--orange);border-radius:12px;
+    padding:14px 20px;color:var(--white);font-size:14px;font-weight:500;
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);transition:transform .35s ease;
+    z-index:100;max-width:90vw;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="container">
+    <a href="#" class="brand" aria-label="CARGEX">
+      <div class="brand-logo"><img src="assets/CARGEX-02.jpg" alt="CARGEX"></div>
+      <div class="brand-text">CARGE<span>X</span><small>Logística Pesada · RD</small></div>
+    </a>
+    <div class="nav-links">
+      <a href="#capacidad">Capacidad</a>
+      <a href="#propuesta">Propuesta</a>
+      <a href="#rutas">Rutas</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#tarifa">Tarifa</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/18297949234?text=Hola%20CARGEX%2C%20quiero%20cotizar%20un%20servicio%20de%20transporte." target="_blank" rel="noopener">
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="hero-badge">Logística pesada · República Dominicana</span>
+      <h1>Tu carga, <em>sin fallos,</em> en la ruta correcta.</h1>
+      <p class="lede">
+        CARGEX opera transporte Boss-class para clientes corporativos en RD. Un camión dedicado, tres rutas ancla, 15 días operativos al mes. GPS en vivo, facturación en 48 horas y un socio que responde — no una central impersonal.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-whatsapp" href="https://wa.me/18297949234?text=Hola%20CARGEX%2C%20quiero%20cotizar%20un%20servicio%20de%20transporte." target="_blank" rel="noopener">
+          Cotizar por WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#propuesta">Ver propuesta</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-mark">
+        <img src="assets/CARGEX-02.jpg" alt="Isotipo CARGEX">
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>Boss</b><span>Clase</span></div>
+        <div class="hero-stat"><b>15 d/mes</b><span>Operación</span></div>
+        <div class="hero-stat"><b>48h</b><span>Facturación</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CAPACIDAD -->
+<section id="capacidad">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Capacidad</span>
+      <h2>Un camión dedicado, escala probada.</h2>
+      <p>Arrancamos con un Boss-class de 18 ruedas y tres rutas ancla. Sin sobreventa, sin contratos fantasma — capacidad real que podés medir semana a semana.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="num">1<small>camión</small></div>
+        <h3>Boss-class dedicado</h3>
+        <p>18 ruedas, mantenimiento documentado, rastreo GPS continuo. Tu carga no comparte espacio con la de un tercero.</p>
+      </div>
+      <div class="cap-card">
+        <div class="num">3<small>rutas ancla</small></div>
+        <h3>Haina · Santiago · PC</h3>
+        <p>Corredores ancla identificados. Rutas fijas semanales para clientes con volumen constante, no recogidas puntuales.</p>
+      </div>
+      <div class="cap-card">
+        <div class="num">15<small>días/mes</small></div>
+        <h3>Ritmo operativo real</h3>
+        <p>Planificamos a 15 días operativos — no al número inflado. Eso nos da margen para mantenimiento, clima y contingencias sin fallarle al cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPUESTA — 3 pillars -->
+<section id="propuesta" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Propuesta</span>
+      <h2>Tres razones para contratar con CARGEX.</h2>
+      <p>No somos el más grande. Somos el más preciso — capacidad, tecnología y relación.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-icon">→</div>
+        <h3>Capacidad real, no promesas</h3>
+        <p>Un Boss-class de 18 ruedas, 15 días operativos al mes planificados. Capacidad declarada = capacidad entregada.</p>
+        <ul>
+          <li>Corredor Haina — Santiago</li>
+          <li>Rutas ancla semanales</li>
+          <li>Contratos mensuales o por viaje</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">⚙</div>
+        <h3>Tecnología que responde</h3>
+        <p>GPS en vivo accesible al cliente, logs de combustible/peaje por viaje, facturación en 48 horas post-entrega.</p>
+        <ul>
+          <li>Rastreo GPS continuo</li>
+          <li>Facturación en 48h</li>
+          <li>Reportes semanales por cliente</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">✓</div>
+        <h3>Alianza operativa</h3>
+        <p>Trabajamos como extensión de tu cadena de suministro — no como proveedor genérico. Un solo contacto, respuesta en horas, no en días.</p>
+        <ul>
+          <li>Un socio operativo responsable</li>
+          <li>Respuesta en horas</li>
+          <li>Contrato + SLA escritos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUTAS -->
+<section id="rutas">
+  <div class="container">
+    <div class="rutas-wrap">
+      <div class="rutas-list">
+        <span class="eyebrow">Rutas ancla</span>
+        <h3>Corredores que entendemos.</h3>
+        <p>Las rutas ancla son la columna de CARGEX. Sobre ellas garantizamos frecuencia, tarifa y tiempo. Para spot loads fuera de estas rutas, cotizamos caso por caso.</p>
+        <ul>
+          <li><b>Haina – Santiago</b> — corredor industrial principal, volumen semanal</li>
+          <li><b>Haina – Punta Cana</b> — carga hacia zona turística / hotelera</li>
+          <li><b>Santiago – Cibao norte</b> — distribución regional con retorno cargado</li>
+          <li><b>Spot / Fuera de ruta</b> — cotización por km + tipo de carga</li>
+        </ul>
+      </div>
+      <div class="rutas-map" aria-label="Mapa conceptual de rutas">
+        <div class="lane"><div class="lane-num">1</div><div class="lane-label">Haina → Santiago<small>Corredor ancla · semanal</small></div></div>
+        <div class="lane"><div class="lane-num">2</div><div class="lane-label">Haina → Punta Cana<small>Hotelería / turismo</small></div></div>
+        <div class="lane"><div class="lane-num">3</div><div class="lane-label">Santiago → Cibao<small>Distribución regional</small></div></div>
+        <div class="lane" style="opacity:.7"><div class="lane-num" style="background:var(--navy-line);color:var(--text-mute)">+</div><div class="lane-label">Spot loads<small>Cotización personalizada</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Proceso</span>
+      <h2>De la cotización al reporte, en un flujo limpio.</h2>
+      <p>Sin buzones perdidos ni respuestas de 3 días. Cuatro pasos simples — todos medibles.</p>
+    </div>
+    <div class="proceso-steps">
+      <div class="proceso-step">
+        <div class="proceso-num">1</div>
+        <h3>Cotización</h3>
+        <p>Envíanos origen, destino, tipo y frecuencia. Respondemos con tarifa y fecha disponible en menos de 24h.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">2</div>
+        <h3>Contrato</h3>
+        <p>Firmamos MSA + SOW con SLA, tarifas y términos de pago. Para volumen, tarifa mensual fija.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">3</div>
+        <h3>Operación</h3>
+        <p>Tu carga sale con GPS activo, logs de combustible y peaje. Reporte al finalizar cada viaje.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">4</div>
+        <h3>Facturación</h3>
+        <p>Factura emitida en 48 horas post-entrega. NCF corriente, pago neto-30 o según contrato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFA -->
+<section id="tarifa">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Tarifa</span>
+      <h2>Precio claro. Cotización en 24 horas.</h2>
+      <p>Nuestra tarifa es por ruta, tipo de carga y frecuencia. El mejor precio se negocia con volumen mensual — pero siempre empezamos con una cotización escrita.</p>
+    </div>
+    <div class="tarifa-wrap">
+      <div class="tarifa-left">
+        <h3>Dos maneras de contratar.</h3>
+        <p>Elegí según el perfil de tu operación:</p>
+        <ul>
+          <li><b>Contrato mensual:</b> tarifa fija, frecuencia acordada, prioridad en ruta ancla.</li>
+          <li><b>Por viaje:</b> cotización puntual, ideal para spot loads o picos estacionales.</li>
+          <li>Descuentos por volumen disponibles sobre 3+ viajes/semana.</li>
+          <li>Facturación con NCF, pago neto-30 por defecto.</li>
+        </ul>
+      </div>
+      <div class="tarifa-right">
+        <div class="label">Cotización personalizada</div>
+        <div class="price">24h<small> / respuesta</small></div>
+        <div class="price-note">Contanos la ruta y te enviamos tarifa escrita el mismo día.</div>
+        <a class="btn btn-primary" href="#contacto">Solicitar cotización</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIOS / Trust -->
+<section class="alt">
+  <div class="container socios">
+    <div class="socios-label">Parte de JV Holdings · junto a</div>
+    <div class="socios-grid">
+      <span>GMP — DOOH</span>
+      <span>UTS — Mobile &amp; Retail</span>
+      <span>Axione — Data Platform</span>
+      <span>Valor SRL — Holding</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contacto</span>
+      <h2>Hablemos de tu ruta.</h2>
+      <p>Respondemos en horas, no en días. Por WhatsApp es lo más rápido, o completá el formulario y recibirás una propuesta escrita en menos de 24 horas.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <h3>Un solo contacto. Respuesta real.</h3>
+        <p>Detrás de CARGEX hay socios operativos con nombre y apellido — no un call center. Escríbenos por el canal que prefieras.</p>
+        <div class="contact-info">
+          <a href="https://wa.me/18297949234?text=Hola%20CARGEX%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios." target="_blank" rel="noopener">
+            <div class="icon">WA</div>
+            <div><b>+1 (829) 794-9234</b><span>WhatsApp directo · César Guzmán</span></div>
+          </a>
+          <a href="mailto:cesarguzman2901@gmail.com">
+            <div class="icon">@</div>
+            <div><b>cesarguzman2901@gmail.com</b><span>Cotizaciones y propuestas escritas</span></div>
+          </a>
+          <a href="#" onclick="return false;" style="cursor:default">
+            <div class="icon">📍</div>
+            <div><b>República Dominicana</b><span>Base operativa · Haina · Santiago</span></div>
+          </a>
+        </div>
+      </div>
+      <form id="leadForm" onsubmit="return submitLead(event)">
+        <div>
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" required placeholder="Tu nombre" autocomplete="name">
+        </div>
+        <div>
+          <label for="company">Empresa</label>
+          <input id="company" name="company" type="text" required placeholder="Nombre de la empresa" autocomplete="organization">
+        </div>
+        <div class="row two">
+          <div>
+            <label for="phone">Teléfono</label>
+            <input id="phone" name="phone" type="tel" required placeholder="+1 809..." autocomplete="tel">
+          </div>
+          <div>
+            <label for="freq">Frecuencia</label>
+            <select id="freq" name="freq" required>
+              <option value="">Seleccione</option>
+              <option>Mensual fija (4+ viajes/mes)</option>
+              <option>Semanal (1–3 viajes/mes)</option>
+              <option>Spot / puntual</option>
+              <option>Aún explorando</option>
+            </select>
+          </div>
+        </div>
+        <div class="row two">
+          <div>
+            <label for="origen">Origen</label>
+            <input id="origen" name="origen" type="text" placeholder="Ej: Haina" required>
+          </div>
+          <div>
+            <label for="destino">Destino</label>
+            <input id="destino" name="destino" type="text" placeholder="Ej: Santiago" required>
+          </div>
+        </div>
+        <div>
+          <label for="carga">Tipo de carga / notas</label>
+          <textarea id="carga" name="carga" placeholder="Volumen estimado, tipo de carga, horarios, etc."></textarea>
+        </div>
+        <button type="submit">Enviar solicitud</button>
+        <p class="form-note">Al enviar, abrimos WhatsApp con tus datos pre-llenados para que el mensaje llegue directo.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="brand-mini">
+      <img src="assets/CARGEX-06.jpg" alt="CARGEX">
+      <span>CARGEX · Logística Pesada en RD</span>
+    </div>
+    <p>© 2026 CARGEX · Parte de JV Holdings. Todos los derechos reservados.</p>
+    <div class="footer-links">
+      <a href="#capacidad">Capacidad</a>
+      <a href="#rutas">Rutas</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Abriendo WhatsApp con tu mensaje…</div>
+
+<script>
+function submitLead(e){
+  e.preventDefault();
+  const fd = new FormData(document.getElementById('leadForm'));
+  const data = Object.fromEntries(fd.entries());
+  const msg =
+    "Hola CARGEX, solicito cotización:%0A%0A"+
+    "• Nombre: "+encodeURIComponent(data.name||'')+"%0A"+
+    "• Empresa: "+encodeURIComponent(data.company||'')+"%0A"+
+    "• Teléfono: "+encodeURIComponent(data.phone||'')+"%0A"+
+    "• Frecuencia: "+encodeURIComponent(data.freq||'')+"%0A"+
+    "• Origen: "+encodeURIComponent(data.origen||'')+"%0A"+
+    "• Destino: "+encodeURIComponent(data.destino||'')+"%0A"+
+    "• Notas: "+encodeURIComponent(data.carga||'—');
+  const url = "https://wa.me/18297949234?text="+msg;
+  // show toast
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3200);
+  // open WA
+  window.open(url,'_blank','noopener');
+  return false;
+}
+</script>
+
+</body>
+</html>
