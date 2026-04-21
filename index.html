@@ -42,8 +42,9 @@
   img{max-width:100%;display:block}
   h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:500;line-height:0.98;letter-spacing:-0.035em}
   .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0.04em}
-  .container{max-width:1440px;margin:0 auto;padding:0 48px}
-  @media(max-width:860px){.container{padding:0 22px}}
+  .container{max-width:1520px;margin:0 auto;padding:0 64px}
+  .container.wide{max-width:1760px;padding:0 64px}
+  @media(max-width:860px){.container,.container.wide{padding:0 24px}}
 
   /* ───── NAV ───── */
   nav.top{
@@ -110,8 +111,9 @@
   }
 
   .hero-copy{
-    position:relative;z-index:2;max-width:1440px;margin:0 auto;width:100%;padding:0 48px;
+    position:relative;z-index:2;max-width:1520px;margin:0 auto;width:100%;padding:0 64px;
   }
+  @media(max-width:860px){.hero-copy{padding:0 24px}}
   .hero-mono{
     font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.22em;
     color:var(--orange);text-transform:uppercase;margin-bottom:36px;
@@ -138,9 +140,10 @@
   @keyframes rise{to{transform:translateY(0);opacity:1}}
 
   .hero-foot{
-    display:grid;grid-template-columns:1fr auto;gap:60px;align-items:end;
+    display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:end;
     padding-bottom:40px;opacity:0;animation:fade 1s .75s forwards;
   }
+  @media(max-width:860px){.hero-foot{grid-template-columns:1fr;gap:32px}}
   @keyframes fade{to{opacity:1}}
   .hero-foot p.lede{color:var(--text-soft);font-size:clamp(16px,1.3vw,19px);max-width:520px;line-height:1.5}
   .hero-foot .ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
@@ -265,7 +268,7 @@
 
   /* ───── BIG STATEMENT SECTION ───── */
   .statement{
-    padding:180px 0 120px;position:relative;
+    padding:120px 0 100px;position:relative;
   }
   .statement .eye{
     font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.22em;
@@ -273,19 +276,20 @@
     display:flex;align-items:center;gap:14px;
   }
   .statement .eye::before{content:"";width:28px;height:1px;background:var(--orange)}
+  .statement-row{display:grid;grid-template-columns:1.4fr 1fr;gap:120px;align-items:center}
   .statement h2{
     font-size:clamp(40px,7vw,108px);line-height:0.98;font-weight:400;letter-spacing:-0.04em;
-    max-width:1200px;margin-bottom:50px;
   }
   .statement h2 em{font-style:normal;color:var(--orange);font-weight:500}
   .statement h2 span.dim{color:var(--text-mute)}
-  .statement .row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px;margin-top:40px}
-  .statement .row p{color:var(--text-soft);font-size:17px;line-height:1.6}
-  @media(max-width:860px){.statement{padding:120px 0 80px}.statement .row{grid-template-columns:1fr;gap:24px}}
+  .statement .sidenote{color:var(--text-soft);font-size:17px;line-height:1.6;max-width:380px}
+  .statement .sidenote .mono-lbl{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:var(--orange);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .statement .sidenote .mono-lbl::before{content:"";width:22px;height:1px;background:var(--orange)}
+  @media(max-width:860px){.statement{padding:80px 0 60px}.statement-row{grid-template-columns:1fr;gap:36px}}
 
   /* ───── CAPABILITIES · EDITORIAL SPLIT ───── */
-  .cap-section{padding:120px 0;border-top:1px solid var(--line-soft)}
-  .cap-section .head{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:90px;align-items:end}
+  .cap-section{padding:100px 0;border-top:1px solid var(--line-soft)}
+  .cap-section .head{display:grid;grid-template-columns:1.3fr 1fr;gap:100px;margin-bottom:70px;align-items:end}
   .cap-section .head .eye{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.22em;color:var(--orange);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:14px}
   .cap-section .head .eye::before{content:"";width:28px;height:1px;background:var(--orange)}
   .cap-section .head h2{font-size:clamp(40px,5.5vw,84px);line-height:0.98;font-weight:400;letter-spacing:-0.035em}
@@ -294,9 +298,9 @@
   @media(max-width:860px){.cap-section .head{grid-template-columns:1fr;gap:20px;margin-bottom:60px}}
 
   .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
-  .cap-cell{background:var(--bg);padding:50px 40px;position:relative;min-height:360px;display:flex;flex-direction:column;justify-content:space-between;transition:background .35s}
+  .cap-cell{background:var(--bg);padding:48px 40px;position:relative;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:background .35s}
   .cap-cell:hover{background:var(--bg-2)}
-  .cap-cell .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.24em;color:var(--text-mute);margin-bottom:60px}
+  .cap-cell .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.24em;color:var(--text-mute);margin-bottom:36px}
   .cap-cell h3{font-size:28px;font-weight:500;letter-spacing:-0.025em;margin-bottom:18px;color:var(--text);line-height:1.05}
   .cap-cell h3 em{font-style:normal;color:var(--orange);font-weight:500}
   .cap-cell p{color:var(--text-soft);font-size:14.5px;line-height:1.6;margin-bottom:30px}
@@ -305,9 +309,9 @@
   @media(max-width:860px){.cap-grid{grid-template-columns:1fr}}
 
   /* ───── PROOF STRIP ───── */
-  .proof{padding:100px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .proof{padding:80px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
   .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
-  .proof-grid .c{background:var(--bg-2);padding:50px 32px}
+  .proof-grid .c{background:var(--bg-2);padding:40px 32px}
   .proof-grid .c .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.22em;color:var(--text-mute);margin-bottom:14px}
   .proof-grid .c b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:clamp(48px,5.5vw,80px);color:var(--text);letter-spacing:-0.04em;line-height:0.95;margin-bottom:12px}
   .proof-grid .c b em{font-style:normal;color:var(--orange);font-weight:500}
@@ -315,8 +319,9 @@
   @media(max-width:860px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
 
   /* ───── ROUTES — CINEMATIC ───── */
-  .routes{padding:140px 0;border-top:1px solid var(--line-soft)}
-  .routes .head{max-width:1000px;margin-bottom:80px}
+  .routes{padding:110px 0;border-top:1px solid var(--line-soft)}
+  .routes .head{display:grid;grid-template-columns:1.2fr 1fr;gap:100px;align-items:end;margin-bottom:70px}
+  @media(max-width:860px){.routes .head{grid-template-columns:1fr;gap:24px}}
   .routes .head .eye{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.22em;color:var(--orange);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:14px}
   .routes .head .eye::before{content:"";width:28px;height:1px;background:var(--orange)}
   .routes .head h2{font-size:clamp(40px,6vw,96px);line-height:0.98;font-weight:400;letter-spacing:-0.04em;margin-bottom:24px}
@@ -341,9 +346,10 @@
   @media(max-width:860px){.route-row{grid-template-columns:60px 1fr;gap:14px;padding:20px 0}.route-row .meta,.route-row .freq{grid-column:2}}
 
   /* ───── PROCESS TIMELINE ───── */
-  .process{padding:140px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
-  .process .head{text-align:center;max-width:900px;margin:0 auto 90px}
-  .process .head .eye{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.22em;color:var(--orange);text-transform:uppercase;margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+  .process{padding:110px 0;background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .process .head{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:end;margin:0 0 70px}
+  @media(max-width:860px){.process .head{grid-template-columns:1fr;gap:24px;text-align:left}}
+  .process .head .eye{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.22em;color:var(--orange);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:14px}
   .process .head .eye::before{content:"";width:28px;height:1px;background:var(--orange)}
   .process .head h2{font-size:clamp(36px,5vw,72px);line-height:1;font-weight:400;letter-spacing:-0.035em;margin-bottom:22px}
   .process .head h2 em{font-style:normal;color:var(--orange);font-weight:500}
@@ -381,8 +387,9 @@
   .partner-row span:hover{color:var(--orange);opacity:1}
 
   /* ───── CONTACT ───── */
-  .contact{padding:140px 0;border-top:1px solid var(--line-soft)}
-  .contact .head{max-width:900px;margin-bottom:80px}
+  .contact{padding:110px 0;border-top:1px solid var(--line-soft)}
+  .contact .head{display:grid;grid-template-columns:1.2fr 1fr;gap:100px;align-items:end;margin-bottom:70px}
+  @media(max-width:860px){.contact .head{grid-template-columns:1fr;gap:24px}}
   .contact .head .eye{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.22em;color:var(--orange);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:14px}
   .contact .head .eye::before{content:"";width:28px;height:1px;background:var(--orange)}
   .contact .head h2{font-size:clamp(40px,6vw,96px);line-height:0.98;font-weight:400;letter-spacing:-0.04em;margin-bottom:22px}
@@ -427,21 +434,23 @@
 
   /* ───── FINAL CTA ───── */
   .final-cta{
-    padding:200px 0 140px;position:relative;overflow:hidden;
+    padding:130px 0 120px;position:relative;overflow:hidden;
     background:
-      radial-gradient(ellipse 1100px 600px at center, rgba(232,128,58,0.14),transparent 60%),
+      radial-gradient(ellipse 1100px 600px at 80% 50%, rgba(232,128,58,0.14),transparent 60%),
       var(--bg);
     border-top:1px solid var(--line-soft);
   }
-  .final-cta .container{text-align:center}
-  .final-cta h2{font-size:clamp(44px,9vw,148px);font-weight:400;letter-spacing:-0.045em;line-height:0.92;margin-bottom:40px}
+  .final-cta .inner{display:grid;grid-template-columns:1.5fr 1fr;gap:100px;align-items:center}
+  .final-cta h2{font-size:clamp(44px,8vw,128px);font-weight:400;letter-spacing:-0.045em;line-height:0.92;margin-bottom:0}
   .final-cta h2 em{font-style:normal;color:var(--orange);font-weight:500}
-  .final-cta p{color:var(--text-soft);font-size:18px;max-width:640px;margin:0 auto 50px;line-height:1.5}
-  .final-cta .row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .final-cta .rhs{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+  .final-cta p{color:var(--text-soft);font-size:17px;line-height:1.5;margin:0}
+  .final-cta .row{display:flex;gap:12px;flex-wrap:wrap}
+  @media(max-width:860px){.final-cta .inner{grid-template-columns:1fr;gap:40px}}
 
   /* ───── FOOTER ───── */
-  footer{padding:100px 0 50px;background:var(--bg-2);border-top:1px solid var(--line-soft)}
-  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:80px}
+  footer{padding:80px 0 40px;background:var(--bg-2);border-top:1px solid var(--line-soft)}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:80px;margin-bottom:60px}
   .foot-brand .brand-name{font-size:26px}
   .foot-brand p.tag{color:var(--text-mute);font-size:14px;line-height:1.6;margin-top:18px;max-width:340px}
   .foot-col h5{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--orange);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:24px;font-weight:400}
@@ -494,15 +503,15 @@
   <div class="hero-copy">
     <div class="hero-mono"><span class="dot"></span> Operativo · República Dominicana</div>
     <h1>
-      <span class="l"><span>El nuevo estándar</span></span>
-      <span class="l"><span>en <em>logística pesada.</em></span></span>
-      <span class="l"><span>Construido en RD.</span></span>
+      <span class="l"><span>Logística pesada.</span></span>
+      <span class="l"><span><em>Operación medible.</em></span></span>
+      <span class="l"><span>Dominicana.</span></span>
     </h1>
     <div class="hero-foot">
-      <p class="lede">Un camión dedicado. Tres rutas ancla. GPS en vivo, facturación en 48 h y contratos mensuales — la infraestructura que tu cadena de suministro merece.</p>
+      <p class="lede">Camión furgón de 18 pies dedicado. GPS en vivo, respuesta de cotización en 24&nbsp;h, facturación en 48&nbsp;h. Tres rutas ancla activas.</p>
       <div class="ctas">
-        <a class="btn btn-primary" href="#contacto">Agendar demo</a>
-        <a class="btn btn-ghost" href="#sistema">Ver el sistema</a>
+        <a class="btn btn-primary" href="#contacto">Cotizar</a>
+        <a class="btn btn-ghost" href="#sistema">Ver sistema</a>
       </div>
     </div>
   </div>
@@ -528,35 +537,34 @@
 <!-- ═══════════ METRICS MARQUEE ═══════════ -->
 <section class="marquee" aria-label="Métricas operativas">
   <div class="marquee-track">
-    <div class="it"><b>18 pies<em>·</em></b><span>Box dedicado</span></div><span class="dot">●</span>
-    <div class="it"><b>15 días<em>·</em></b><span>Operación mensual</span></div><span class="dot">●</span>
-    <div class="it"><b>48 h<em>·</em></b><span>Facturación</span></div><span class="dot">●</span>
+    <div class="it"><b>18 pies<em>·</em></b><span>Camión furgón dedicado</span></div><span class="dot">●</span>
     <div class="it"><b>24 h<em>·</em></b><span>Respuesta de cotización</span></div><span class="dot">●</span>
+    <div class="it"><b>48 h<em>·</em></b><span>Facturación post-entrega</span></div><span class="dot">●</span>
     <div class="it"><b>100%<em>·</em></b><span>GPS en vivo</span></div><span class="dot">●</span>
     <div class="it"><b>3 rutas<em>·</em></b><span>Ancla activas</span></div><span class="dot">●</span>
-    <div class="it"><b>Neto-30<em>·</em></b><span>Términos</span></div><span class="dot">●</span>
+    <div class="it"><b>Neto-30<em>·</em></b><span>Términos de pago</span></div><span class="dot">●</span>
     <!-- duplicate for seamless loop -->
-    <div class="it"><b>18 pies<em>·</em></b><span>Box dedicado</span></div><span class="dot">●</span>
-    <div class="it"><b>15 días<em>·</em></b><span>Operación mensual</span></div><span class="dot">●</span>
-    <div class="it"><b>48 h<em>·</em></b><span>Facturación</span></div><span class="dot">●</span>
+    <div class="it"><b>18 pies<em>·</em></b><span>Camión furgón dedicado</span></div><span class="dot">●</span>
     <div class="it"><b>24 h<em>·</em></b><span>Respuesta de cotización</span></div><span class="dot">●</span>
+    <div class="it"><b>48 h<em>·</em></b><span>Facturación post-entrega</span></div><span class="dot">●</span>
     <div class="it"><b>100%<em>·</em></b><span>GPS en vivo</span></div><span class="dot">●</span>
     <div class="it"><b>3 rutas<em>·</em></b><span>Ancla activas</span></div><span class="dot">●</span>
-    <div class="it"><b>Neto-30<em>·</em></b><span>Términos</span></div>
+    <div class="it"><b>Neto-30<em>·</em></b><span>Términos de pago</span></div>
   </div>
 </section>
 
 <!-- ═══════════ BIG STATEMENT ═══════════ -->
 <section class="statement" id="sistema">
   <div class="container">
-    <div class="eye reveal">Tesis</div>
-    <h2 class="reveal d1">
-      La logística pesada en RD <span class="dim">opera a ciegas.</span><br/>
-      Nosotros la estamos <em>reinventando.</em>
-    </h2>
-    <div class="row">
-      <p class="reveal d2">CARGEX combina un camión dedicado con el rigor de un operador grande — GPS en vivo, facturación en 48 horas, contratos escritos, reportes semanales. Sin los tiempos muertos de una flota sobrevendida, sin la impersonalidad de una central.</p>
-      <p class="reveal d3">Para la cadena de suministro moderna en RD, esto es lo mínimo. Para lo que existe hoy, es una reinvención. Un solo contacto, capacidad real, y un equipo que responde en horas.</p>
+    <div class="statement-row">
+      <h2 class="reveal">
+        <span class="dim">Capacidad declarada</span><br/>
+        = <em>capacidad entregada.</em>
+      </h2>
+      <div class="sidenote reveal d1">
+        <div class="mono-lbl">Principio</div>
+        Un camión asignado a tu operación — no una flota sobrevendida. La capacidad que cotizamos es la que cumplimos.
+      </div>
     </div>
   </div>
 </section>
@@ -566,36 +574,36 @@
   <div class="container">
     <div class="head">
       <div>
-        <div class="eye">Sistema operativo</div>
+        <div class="eye">Sistema</div>
         <h2>De pickup <br/>a factura, <em>sin fricciones.</em></h2>
       </div>
-      <p>Cada viaje entra como orden, sale con GPS, cierra con reporte y se factura en 48 horas. Tres capacidades que dejaron de ser lujo y pasaron a ser mínimo.</p>
+      <p>Cada viaje entra como orden, sale con GPS, cierra con reporte y se factura en 48&nbsp;horas.</p>
     </div>
 
     <div class="cap-grid">
       <div class="cap-cell reveal">
         <div class="num">01 / Capacidad</div>
         <div>
-          <h3>Un camión <em>dedicado</em> <br/>para tu operación.</h3>
-          <p>Boss-class de 18 pies, 15 días operativos/mes planificados. Sin sobreventa, sin flota fantasma. Capacidad declarada = capacidad entregada.</p>
+          <h3>Camión furgón <em>18 pies.</em> <br/>Dedicado.</h3>
+          <p>Un vehículo asignado a tu operación. Sin sobreventa, sin flota fantasma.</p>
         </div>
         <div class="tag">Rutas ancla semanales</div>
       </div>
       <div class="cap-cell reveal d1">
         <div class="num">02 / Visibilidad</div>
         <div>
-          <h3>GPS <em>continuo</em> <br/>y reportes por viaje.</h3>
-          <p>Rastreo en vivo accesible al cliente. Logs de combustible, peaje y kilómetros. Reporte al cerrar cada viaje — el control de un operador grande en un socio a tu medida.</p>
+          <h3>GPS <em>en vivo</em> <br/>por viaje.</h3>
+          <p>Rastreo continuo accesible al cliente. Logs de combustible, peaje y kilómetros.</p>
         </div>
         <div class="tag">Dashboards por cliente</div>
       </div>
       <div class="cap-cell reveal d2">
-        <div class="num">03 / Alianza</div>
+        <div class="num">03 / Ciclo</div>
         <div>
-          <h3>Un contacto. <em>Respuesta</em> <br/>en horas, no en días.</h3>
-          <p>Detrás de CARGEX hay socios operativos con nombre y apellido — no una central impersonal. Contrato escrito, SLA claro, un solo canal para todo.</p>
+          <h3>Factura en <em>48&nbsp;horas</em> <br/>post-entrega.</h3>
+          <p>Factura con NCF emitida dentro de 48 horas del cierre del viaje. Pago neto-30 por defecto. Nada queda abierto más de una semana.</p>
         </div>
-        <div class="tag">Contrato + SLA escritos</div>
+        <div class="tag">NCF · Neto-30</div>
       </div>
     </div>
   </div>
@@ -608,7 +616,7 @@
       <div class="c reveal">
         <div class="n mono">01 / Flota</div>
         <b><em>01</em></b>
-        <span>Camión Boss-class dedicado (18 pies).</span>
+        <span>Camión furgón dedicado de 18 pies.</span>
       </div>
       <div class="c reveal d1">
         <div class="n mono">02 / Rutas</div>
@@ -616,9 +624,9 @@
         <span>Corredores ancla activos — Haina / Santiago / PC.</span>
       </div>
       <div class="c reveal d2">
-        <div class="n mono">03 / Operación</div>
-        <b>15<em>d</em></b>
-        <span>Días operativos al mes — planificación conservadora.</span>
+        <div class="n mono">03 / Visibilidad</div>
+        <b>100<em>%</em></b>
+        <span>GPS en vivo por viaje — accesible al cliente.</span>
       </div>
       <div class="c reveal d3">
         <div class="n mono">04 / Ciclo</div>
@@ -633,9 +641,11 @@
 <section class="routes" id="rutas">
   <div class="container">
     <div class="head reveal">
-      <div class="eye">Rutas ancla</div>
-      <h2>Corredores que <em>entendemos.</em></h2>
-      <p>Sobre estas rutas garantizamos frecuencia, tarifa y tiempo. Para cargas fuera de ruta (spot loads), cotizamos caso por caso con tu equipo.</p>
+      <div>
+        <div class="eye">Rutas</div>
+        <h2>Corredores <em>ancla.</em></h2>
+      </div>
+      <p>Frecuencia, tarifa y tiempo garantizados. Spot loads cotizamos caso por caso.</p>
     </div>
 
     <div class="route-list">
@@ -671,9 +681,11 @@
 <section class="process" id="proceso">
   <div class="container">
     <div class="head reveal">
-      <div class="eye">Proceso</div>
-      <h2>De la cotización <br/>al reporte, <em>en cuatro pasos.</em></h2>
-      <p>Todo medible. Ningún buzón perdido. Ninguna respuesta de tres días.</p>
+      <div>
+        <div class="eye">Proceso</div>
+        <h2>Cotización <em>→</em> factura <br/>en cuatro pasos.</h2>
+      </div>
+      <p>Todo medible. Todo documentado. Sin buzones perdidos.</p>
     </div>
     <div class="tl-grid">
       <div class="tl-item reveal d1">
@@ -700,35 +712,24 @@
   </div>
 </section>
 
-<!-- ═══════════ PARTNERS ═══════════ -->
-<section class="partners">
-  <div class="container">
-    <p class="lbl">Parte del grupo JV Holdings</p>
-    <div class="partner-row">
-      <span>GMP — DOOH</span>
-      <span>UTS — Mobile &amp; Retail</span>
-      <span>Axione — Data</span>
-      <span>Valor SRL — Holding</span>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════ CONTACT ═══════════ -->
 <section class="contact" id="contacto">
   <div class="container">
     <div class="head reveal">
-      <div class="eye">Contacto</div>
-      <h2>Hablemos de <em>tu ruta.</em></h2>
-      <p>Por WhatsApp es lo más rápido. O completa el formulario y recibimos tus datos directos en el mismo canal — cotización escrita en 24 horas.</p>
+      <div>
+        <div class="eye">Contacto</div>
+        <h2>Tu <em>ruta.</em></h2>
+      </div>
+      <p>WhatsApp o formulario. Cotización escrita en 24&nbsp;horas.</p>
     </div>
     <div class="contact-wrap">
       <div class="contact-left reveal">
-        <h3>Un solo contacto. Respuesta real.</h3>
-        <p>Detrás de CARGEX hay socios operativos con nombre — no un call center. Escríbenos por el canal que prefieras.</p>
+        <h3>Escribinos por el canal que prefieras.</h3>
+        <p>Respondemos en horas, no en días. WhatsApp para lo rápido; email para cotizaciones escritas y propuestas formales.</p>
         <div class="ci-list">
           <a class="ci" href="https://wa.me/18297949234?text=Hola%20CARGEX%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios." target="_blank" rel="noopener">
             <div class="k mono">WA</div>
-            <div><b>+1 (829) 794-9234</b><span>César Guzmán · socio operativo</span></div>
+            <div><b>+1 (829) 794-9234</b><span>César Guzmán · contacto directo</span></div>
             <div class="arrow">→</div>
           </a>
           <a class="ci" href="mailto:cesarguzman2901@gmail.com">
@@ -792,11 +793,15 @@
 <!-- ═══════════ FINAL CTA ═══════════ -->
 <section class="final-cta">
   <div class="container">
-    <h2 class="reveal">Mueve carga <em>pesada</em> <br/>con un socio que <em>responde.</em></h2>
-    <p class="reveal d1">Cotización en 24 horas. Contrato escrito. GPS en vivo desde el día uno.</p>
-    <div class="row reveal d2">
-      <a class="btn btn-primary" href="https://wa.me/18297949234?text=Hola%20CARGEX%2C%20quiero%20cotizar." target="_blank" rel="noopener">Abrir WhatsApp</a>
-      <a class="btn btn-ghost" href="mailto:cesarguzman2901@gmail.com">Escribir por email</a>
+    <div class="inner">
+      <h2 class="reveal"><em>Mueve</em> tu carga.</h2>
+      <div class="rhs reveal d1">
+        <p>Cotización en 24&nbsp;horas · GPS en vivo · factura en 48&nbsp;h.</p>
+        <div class="row">
+          <a class="btn btn-primary" href="https://wa.me/18297949234?text=Hola%20CARGEX%2C%20quiero%20cotizar." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost" href="mailto:cesarguzman2901@gmail.com">Email</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -810,7 +815,7 @@
           <div class="brand-mark"><img src="assets/CARGEX-02.jpg" alt=""></div>
           <div class="brand-name">CARGE<em>X</em></div>
         </div>
-        <p class="tag">Logística pesada reinventada en República Dominicana. Un camión dedicado, tres rutas ancla, operación medible. Parte del grupo JV Holdings.</p>
+        <p class="tag">Logística pesada reinventada en República Dominicana. Un camión furgón dedicado, tres rutas ancla, operación medible.</p>
       </div>
       <div class="foot-col">
         <h5>Navegación</h5>
@@ -822,8 +827,8 @@
       <div class="foot-col">
         <h5>Compañía</h5>
         <a href="#contacto">Contacto</a>
-        <a href="#">JV Holdings</a>
-        <a href="#">Políticas</a>
+        <a href="#sistema">Sistema</a>
+        <a href="#rutas">Rutas</a>
       </div>
       <div class="foot-col">
         <h5>Contacto</h5>
@@ -832,7 +837,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 · CARGEX · JV Holdings</span>
+      <span>© 2026 · CARGEX · República Dominicana</span>
       <span>Hecho en RD</span>
     </div>
   </div>
